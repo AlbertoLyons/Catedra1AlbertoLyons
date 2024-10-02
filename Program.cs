@@ -1,4 +1,6 @@
 using Catedra1AlbertoLyons.src.data;
+using Catedra1AlbertoLyons.src.interfaces;
+using Catedra1AlbertoLyons.src.repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlite("Data Source=catedra1.db");
 });
 
+builder.Services.AddControllers();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<Seeder>();
@@ -27,7 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.MapControllers();
 app.UseHttpsRedirection();
 
 app.Run();
