@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+69M6ATFkg4=",
+  "dgSpecHash": "O9c+0Ks/yQ8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Alberto\\Downloads\\Catedra1AlbertoLyons\\Catedra1AlbertoLyons.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Alberto\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
     "C:\\Users\\Alberto\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Alberto\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Alberto\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
