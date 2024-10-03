@@ -40,5 +40,15 @@ namespace Catedra1AlbertoLyons.src.controllers
             var users = await _userRepository.GetAllAsync();
             return TypedResults.Ok(users);
         }
+        [HttpGet("{gender}")]
+        public async Task<IResult> GetByGenderAsync(string gender)
+        {
+            var users = await _userRepository.GetByGender(gender);
+            if (users == null || users.Count() == 0)
+            {
+                return TypedResults.NotFound("Usuarios no encontrados");
+            }
+            return TypedResults.Ok(users);
+        }
     }
 }
