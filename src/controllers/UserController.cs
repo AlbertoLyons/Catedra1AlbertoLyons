@@ -108,5 +108,20 @@ namespace Catedra1AlbertoLyons.src.controllers
             }
             return TypedResults.Conflict("Error al editar el usuario");
         }
+        [HttpDelete("{id}")]
+        public async Task<IResult> DeleteUserAsync(int id)
+        {
+            var user = await _userRepository.GetById(id);
+            if (user == null)
+            {
+                return TypedResults.NotFound("Usuario no encontrado");
+            }
+            bool deleted = await _userRepository.DeleteUserAsync(user);
+            if (deleted)
+            {
+                return TypedResults.Ok("Usuario eliminado correctamente");
+            }
+            return TypedResults.Conflict("Error al eliminar el usuario");
+        }
     }
 }

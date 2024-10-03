@@ -12,6 +12,7 @@ namespace Catedra1AlbertoLyons.src.interfaces
         Task<bool> ExistsById(int id);
         Task<bool> AddUserAsync(User user);
         Task<IEnumerable<User>> GetAllAsync();
+        Task<User> GetById(int id);
         Task<IEnumerable<User>> GetAscSorted();
         Task<IEnumerable<User>> GetDescSorted();
         Task<IEnumerable<User>> GetByGender(string gender);

@@ -26,12 +26,9 @@ namespace Catedra1AlbertoLyons.src.repositories
 
         public async Task<bool> DeleteUserAsync(User user)
         {
-            if (await ExistsByRut(user.Rut)) 
-            {
-                _dataContext.Users.Remove(user);
-                return true;
-            }
-            return false;
+            _dataContext.Users.Remove(user);
+            await _dataContext.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> EditUserAsync(int id, User user)
@@ -76,6 +73,11 @@ namespace Catedra1AlbertoLyons.src.repositories
         {
             if (gender == null) throw new ArgumentNullException(nameof(gender));
             return await _dataContext.Users.Where(p => p.Gender == gender).ToListAsync();
+        }
+
+        public Task<User> GetById(int id)
+        {
+            return _dataContext.Users.FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }
