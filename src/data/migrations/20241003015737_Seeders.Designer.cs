@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Catedra1AlbertoLyons.Migrations
+namespace Catedra1AlbertoLyons.src.data.migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241003005749_Initial")]
-    partial class Initial
+    [Migration("20241003015737_Seeders")]
+    partial class Seeders
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

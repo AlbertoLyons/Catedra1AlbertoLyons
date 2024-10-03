@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "650e6254-436d-49b0-9f6c-7de7265fa9dd",
+		"name": "Cátedra 1 Alberto Lyons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34959437"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rut\": \"21483143-0\",\r\n  \"name\": \"alberto\",\r\n  \"email\": \"albertolyons@gmail.com\",\r\n  \"gender\": \"masculino\",\r\n  \"birthdate\": \"2024-01-07\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5288/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5288/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users By Gender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5288/user/masculino",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user",
+						"masculino"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5288/user/asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5288/user/desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user",
+						"desc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rut\": \"10434831-4\",\r\n  \"name\": \"María Pérez\",\r\n  \"email\": \"mariaperez01@gmail.com\",\r\n  \"gender\": \"otro\",\r\n  \"birthdate\": \"2006-02-07\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5288/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5288/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5288",
+					"path": [
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

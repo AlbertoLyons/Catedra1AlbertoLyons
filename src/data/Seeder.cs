@@ -17,7 +17,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "María Pérez",
                     Email = "mariaperez@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "femenino",
                     Birthdate = new DateTime(1990, 5, 12)
                 },
                 new User
@@ -25,7 +25,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Jorge González",
                     Email = "jorgegonzalez@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "otro",
                     Birthdate = new DateTime(1985, 11, 23)
                 },
                 new User
@@ -33,7 +33,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Carla Fuentes",
                     Email = "carlafuentes@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "femenino",
                     Birthdate = new DateTime(2000, 3, 17)
                 },
                 new User
@@ -41,7 +41,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Pedro Morales",
                     Email = "pedromorales@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "otro",
                     Birthdate = new DateTime(1995, 7, 29)
                 },
                 new User
@@ -49,7 +49,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Lucía Contreras",
                     Email = "luciacontreras@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "femenino",
                     Birthdate = new DateTime(1998, 9, 2)
                 },
                 new User
@@ -57,7 +57,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Diego Torres",
                     Email = "diegotorres@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "prefiero no decirlo",
                     Birthdate = new DateTime(2002, 12, 15)
                 },
                 new User
@@ -65,7 +65,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Sofía Araya",
                     Email = "sofiaaraya@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "femenino",
                     Birthdate = new DateTime(2002, 12, 15)
                 },
                 new User
@@ -73,7 +73,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Diego Araya",
                     Email = "diegoaraya@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "prefiero no decirlo",
                     Birthdate = new DateTime(2001, 4, 12)
                 },
                 new User
@@ -81,7 +81,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Oscar Araya",
                     Email = "oscararaya@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "prefiero no decirlo",
                     Birthdate = new DateTime(2003, 12, 10)
                 },
                 new User
@@ -89,7 +89,7 @@ namespace Catedra1AlbertoLyons.src.data
                     Rut = $"{random.Next(10000000, 99999999)}-{random.Next(0, 9)}",
                     Name = "Elias James",
                     Email = "eliasjames@gmail.com",
-                    Gender = genders[random.Next(0, genders.Length)],
+                    Gender = "masculino",
                     Birthdate = new DateTime(2003, 9, 5)
                 },
             };
