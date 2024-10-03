@@ -13,6 +13,10 @@ namespace Catedra1AlbertoLyons.src.repositories
     public class UserRepository : IUserRepository
     {
         private readonly DataContext _dataContext;
+        public UserRepository(DataContext dataContext) 
+        {
+            _dataContext = dataContext;
+        }
         public async Task<bool> AddUserAsync(User user)
         {
             _dataContext.Users.Add(user);
