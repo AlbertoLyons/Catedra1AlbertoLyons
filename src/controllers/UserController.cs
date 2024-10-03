@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Catedra1AlbertoLyons.src.dtos;
 using Catedra1AlbertoLyons.src.interfaces;
 using Catedra1AlbertoLyons.src.models;
 using Microsoft.AspNetCore.Mvc;
@@ -19,13 +20,21 @@ namespace Catedra1AlbertoLyons.src.controllers
             _userRepository = userRepository;
         }
         [HttpPost("")]
-        public async Task<IResult> CreateProductAsync(User user) 
+        public async Task<IResult> CreateUserAsync(CreateUserDto createUserDto) 
         {
-            bool exists = await _userRepository.ExistsByRut(user.Rut);
+            bool exists = await _userRepository.ExistsByRut(createUserDto.Rut);
             if (exists)
             {
                 return TypedResults.Conflict("El rut del usuario ya existe");
             } else {
+                User user = new User
+                {
+                    Rut = createUserDto.Rut,
+                    Name = createUserDto.Name,
+                    Email = createUserDto.Email,
+                    Gender = createUserDto.Gender,
+                    Birthdate = createUserDto.Birthdate
+                };
                 bool added = await _userRepository.AddUserAsync(user);
                 if (!added)
                 {
