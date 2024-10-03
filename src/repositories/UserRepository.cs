@@ -34,18 +34,16 @@ namespace Catedra1AlbertoLyons.src.repositories
             return false;
         }
 
-        public async Task<bool> EditUserAsync(string rut, User user)
+        public async Task<bool> EditUserAsync(int id, User user)
         {
-            var existingUser = await _dataContext.Users.FirstOrDefaultAsync(u => u.Rut == rut);
-            if (existingUser == null)
-            {
-            return false;
-            }
+            var existingUser = await _dataContext.Users.FirstOrDefaultAsync(u => u.Id == id);
 
+            existingUser.Rut = user.Rut;
             existingUser.Name = user.Name;
             existingUser.Email = user.Email;
             existingUser.Gender = user.Gender;
             existingUser.Birthdate = user.Birthdate;
+            
             _dataContext.Users.Update(existingUser);
             await _dataContext.SaveChangesAsync();
             return true;
@@ -54,6 +52,10 @@ namespace Catedra1AlbertoLyons.src.repositories
         public async Task<bool> ExistsByRut(string rut)
         {
             return await _dataContext.Users.AnyAsync(p => p.Rut == rut);
+        }
+        public async Task<bool> ExistsById(int id)
+        {
+            return await _dataContext.Users.AnyAsync(p => p.Id == id);
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()

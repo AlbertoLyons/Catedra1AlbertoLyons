@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Catedra1AlbertoLyons.src.dtos
 {
-    public class CreateUserDto
+    public class UserDto
     {
         [StringLength(10), MinLength(7)]
         public required string Rut { get; set; }

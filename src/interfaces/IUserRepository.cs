@@ -9,12 +9,13 @@ namespace Catedra1AlbertoLyons.src.interfaces
     public interface IUserRepository
     {
         Task<bool> ExistsByRut(string rut);
+        Task<bool> ExistsById(int id);
         Task<bool> AddUserAsync(User user);
         Task<IEnumerable<User>> GetAllAsync();
         Task<IEnumerable<User>> GetAscSorted();
         Task<IEnumerable<User>> GetDescSorted();
         Task<IEnumerable<User>> GetByGender(string gender);
-        Task<bool> EditUserAsync(string rut, User user);
+        Task<bool> EditUserAsync(int id, User user);
         Task<bool> DeleteUserAsync(User user);
     }
 }

@@ -20,7 +20,7 @@ namespace Catedra1AlbertoLyons.src.controllers
             _userRepository = userRepository;
         }
         [HttpPost("")]
-        public async Task<IResult> CreateUserAsync(CreateUserDto createUserDto) 
+        public async Task<IResult> CreateUserAsync(UserDto createUserDto) 
         {
             bool exists = await _userRepository.ExistsByRut(createUserDto.Rut);
             if (exists)
@@ -76,9 +76,37 @@ namespace Catedra1AlbertoLyons.src.controllers
             return TypedResults.Ok(users);
         }
         [HttpPut("{id}")]
-        public async Task<IResult> EditUserAsync(string id)
+        public async Task<IResult> EditUserAsync(int id, UserDto editUserDto)
         {
-            
+            bool exists = await _userRepository.ExistsById(id);
+            if (!exists)
+            {
+                return TypedResults.NotFound("Usuario no encontrado");
+            }
+            exists = await _userRepository.ExistsByRut(editUserDto.Rut);
+            if (exists)
+            {
+                return TypedResults.Conflict("El rut del usuario ya existe");
+            } else {
+                if (editUserDto.Birthdate > DateTime.Now)
+                {
+                    return TypedResults.BadRequest("La fecha de nacimiento no puede ser mayor a la fecha actual");
+                }
+                User user = new User
+                {
+                    Rut = editUserDto.Rut,
+                    Name = editUserDto.Name,
+                    Email = editUserDto.Email,
+                    Gender = editUserDto.Gender,
+                    Birthdate = editUserDto.Birthdate
+                };
+                bool edited = await _userRepository.EditUserAsync(id, user);
+                if (edited)
+                {
+                    return TypedResults.Ok("Usuario editado correctamente");
+                }
+            }
+            return TypedResults.Conflict("Error al editar el usuario");
         }
     }
 }
