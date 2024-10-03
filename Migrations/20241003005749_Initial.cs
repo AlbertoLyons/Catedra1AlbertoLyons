@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Catedra1AlbertoLyons.src.Data.Migrations
+namespace Catedra1AlbertoLyons.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -15,7 +15,9 @@ namespace Catedra1AlbertoLyons.src.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Rut = table.Column<string>(type: "TEXT", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Rut = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
@@ -23,7 +25,7 @@ namespace Catedra1AlbertoLyons.src.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Rut);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 

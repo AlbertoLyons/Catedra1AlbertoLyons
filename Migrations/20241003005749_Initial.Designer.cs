@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Catedra1AlbertoLyons.src.Data.Migrations
+namespace Catedra1AlbertoLyons.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241002233006_Initial")]
+    [Migration("20241003005749_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -22,8 +22,9 @@ namespace Catedra1AlbertoLyons.src.Data.Migrations
 
             modelBuilder.Entity("Catedra1AlbertoLyons.src.models.User", b =>
                 {
-                    b.Property<string>("Rut")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("TEXT");
@@ -41,7 +42,12 @@ namespace Catedra1AlbertoLyons.src.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Rut");
+                    b.Property<string>("Rut")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
