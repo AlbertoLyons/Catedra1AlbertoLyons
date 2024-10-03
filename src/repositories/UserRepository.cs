@@ -61,6 +61,15 @@ namespace Catedra1AlbertoLyons.src.repositories
             return await _dataContext.Users.ToListAsync();
         }
 
+        public async Task<IEnumerable<User>> GetAscSorted()
+        {
+            return await _dataContext.Users.OrderBy(p => p.Name).ToListAsync();
+        }
+        public async Task<IEnumerable<User>> GetDescSorted()
+        {
+            return await _dataContext.Users.OrderByDescending(p => p.Name).ToListAsync();
+        }
+
         public async Task<IEnumerable<User>> GetByGender(string gender)
         {
             if (gender == null) throw new ArgumentNullException(nameof(gender));

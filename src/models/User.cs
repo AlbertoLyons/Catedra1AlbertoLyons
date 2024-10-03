@@ -14,6 +14,7 @@ namespace Catedra1AlbertoLyons.src.models
         public string Rut { get; set; }
         [StringLength(100), MinLength(3)]
         public string Name { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
         [RegularExpression(@"masculino|femenino|otro|prefiero no decirlo")]
         public string Gender { get; set; }

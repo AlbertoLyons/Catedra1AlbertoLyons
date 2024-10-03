@@ -27,6 +27,10 @@ namespace Catedra1AlbertoLyons.src.controllers
             {
                 return TypedResults.Conflict("El rut del usuario ya existe");
             } else {
+                if (createUserDto.Birthdate > DateTime.Now)
+                {
+                    return TypedResults.BadRequest("La fecha de nacimiento no puede ser mayor a la fecha actual");
+                }
                 User user = new User
                 {
                     Rut = createUserDto.Rut,
@@ -49,6 +53,18 @@ namespace Catedra1AlbertoLyons.src.controllers
             var users = await _userRepository.GetAllAsync();
             return TypedResults.Ok(users);
         }
+        [HttpGet("asc")]
+        public async Task<IResult> GetUsersAscAsync()
+        {
+            var users = await _userRepository.GetAscSorted();
+            return TypedResults.Ok(users);
+        }
+        [HttpGet("desc")]
+        public async Task<IResult> GetUsersDescAsync()
+        {
+            var users = await _userRepository.GetDescSorted();
+            return TypedResults.Ok(users);
+        }
         [HttpGet("{gender}")]
         public async Task<IResult> GetByGenderAsync(string gender)
         {
@@ -58,6 +74,11 @@ namespace Catedra1AlbertoLyons.src.controllers
                 return TypedResults.NotFound("Usuarios no encontrados");
             }
             return TypedResults.Ok(users);
+        }
+        [HttpPut("{id}")]
+        public async Task<IResult> EditUserAsync(string id)
+        {
+            
         }
     }
 }
