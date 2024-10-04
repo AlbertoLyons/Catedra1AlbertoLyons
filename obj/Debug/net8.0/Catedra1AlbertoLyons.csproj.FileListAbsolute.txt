@@ -259,3 +259,5 @@ C:\Users\revat\Downloads\Catedra1AlbertoLyons\obj\Debug\net8.0\refint\Catedra1Al
 C:\Users\revat\Downloads\Catedra1AlbertoLyons\obj\Debug\net8.0\Catedra1AlbertoLyons.pdb
 C:\Users\revat\Downloads\Catedra1AlbertoLyons\obj\Debug\net8.0\Catedra1AlbertoLyons.genruntimeconfig.cache
 C:\Users\revat\Downloads\Catedra1AlbertoLyons\obj\Debug\net8.0\ref\Catedra1AlbertoLyons.dll
+C:\Users\revat\Downloads\Catedra1AlbertoLyons\bin\Debug\net8.0\Cátedra 1 Alberto Lyons.postman_collection.json
+C:\Users\revat\Downloads\Catedra1AlbertoLyons\bin\Debug\net8.0\POST add user response.json

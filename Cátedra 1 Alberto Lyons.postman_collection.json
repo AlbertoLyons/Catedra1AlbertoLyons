@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "650e6254-436d-49b0-9f6c-7de7265fa9dd",
+		"_postman_id": "4fa2b7bb-7959-441f-a882-d25a63047e6c",
 		"name": "Cátedra 1 Alberto Lyons",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "34959437"
@@ -32,7 +32,158 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add User 409",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"21483143-0\",\r\n  \"name\": \"alberto\",\r\n  \"email\": \"albertolyons@gmail.com\",\r\n  \"gender\": \"masculino\",\r\n  \"birthdate\": \"2024-01-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 02:59:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"El rut del usuario ya existe\""
+				},
+				{
+					"name": "Add User 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"21483142-0\",\r\n  \"name\": \"alberto\",\r\n  \"email\": \"albertolyons@gmail.com\",\r\n  \"gender\": \"masculino\",\r\n  \"birthdate\": \"2024-01-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:00:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"Usuario creado exitosamente\""
+				},
+				{
+					"name": "Add User 400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"21483143-0\",\r\n  \"name\": \"alberto\",\r\n  \"email\": \"albertolyons\",\r\n  \"gender\": \"masculino\",\r\n  \"birthdate\": \"2024-01-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:02:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Email\": [\n            \"The Email field is not a valid e-mail address.\"\n        ]\n    },\n    \"traceId\": \"00-b5a6c09b68a0738620c908a29810cff2-c085157235817e22-00\"\n}"
+				}
+			]
 		},
 		{
 			"name": "GetUsers",
@@ -51,67 +202,134 @@
 					]
 				}
 			},
-			"response": []
-		},
-		{
-			"name": "Get Users By Gender",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5288/user/masculino",
-					"protocol": "http",
-					"host": [
-						"localhost"
+			"response": [
+				{
+					"name": "GetByGender 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5288/user/masculino",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"masculino"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 02:55:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
 					],
-					"port": "5288",
-					"path": [
-						"user",
-						"masculino"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User Asc",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5288/user/asc",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 10,\n        \"rut\": \"78478405-5\",\n        \"name\": \"Elias James\",\n        \"email\": \"eliasjames@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2003-09-05T00:00:00\"\n    },\n    {\n        \"id\": 12,\n        \"rut\": \"21483141-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"rut\": \"21483143-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    }\n]"
+				},
+				{
+					"name": "GetAsc 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5288/user/asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"asc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 02:57:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
 					],
-					"port": "5288",
-					"path": [
-						"user",
-						"asc"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get User Desc",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5288/user/desc",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"rut\": \"92923142-1\",\n        \"name\": \"Carla Fuentes\",\n        \"email\": \"carlafuentes@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"2000-03-17T00:00:00\"\n    },\n    {\n        \"id\": 8,\n        \"rut\": \"12942918-7\",\n        \"name\": \"Diego Araya\",\n        \"email\": \"diegoaraya@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2001-04-12T00:00:00\"\n    },\n    {\n        \"id\": 6,\n        \"rut\": \"12847223-6\",\n        \"name\": \"Diego Torres\",\n        \"email\": \"diegotorres@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2002-12-15T00:00:00\"\n    },\n    {\n        \"id\": 10,\n        \"rut\": \"78478405-5\",\n        \"name\": \"Elias James\",\n        \"email\": \"eliasjames@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2003-09-05T00:00:00\"\n    },\n    {\n        \"id\": 2,\n        \"rut\": \"22462260-4\",\n        \"name\": \"Jorge González\",\n        \"email\": \"jorgegonzalez@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"1985-11-23T00:00:00\"\n    },\n    {\n        \"id\": 5,\n        \"rut\": \"66910530-2\",\n        \"name\": \"Lucía Contreras\",\n        \"email\": \"luciacontreras@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"1998-09-02T00:00:00\"\n    },\n    {\n        \"id\": 1,\n        \"rut\": \"23434831-4\",\n        \"name\": \"María Pérez\",\n        \"email\": \"perezmaria@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"2004-01-07T00:00:00\"\n    },\n    {\n        \"id\": 9,\n        \"rut\": \"78863922-2\",\n        \"name\": \"Oscar Araya\",\n        \"email\": \"oscararaya@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2003-12-10T00:00:00\"\n    },\n    {\n        \"id\": 4,\n        \"rut\": \"21858605-6\",\n        \"name\": \"Pedro Morales\",\n        \"email\": \"pedromorales@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"1995-07-29T00:00:00\"\n    },\n    {\n        \"id\": 7,\n        \"rut\": \"28906281-0\",\n        \"name\": \"Sofía Araya\",\n        \"email\": \"sofiaaraya@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"2002-12-15T00:00:00\"\n    },\n    {\n        \"id\": 12,\n        \"rut\": \"21483141-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"rut\": \"21483143-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    }\n]"
+				},
+				{
+					"name": "GetDesc 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5288/user/desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"desc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 02:57:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
 					],
-					"port": "5288",
-					"path": [
-						"user",
-						"desc"
-					]
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 12,\n        \"rut\": \"21483141-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"rut\": \"21483143-0\",\n        \"name\": \"alberto\",\n        \"email\": \"albertolyons@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2024-01-07T00:00:00\"\n    },\n    {\n        \"id\": 7,\n        \"rut\": \"28906281-0\",\n        \"name\": \"Sofía Araya\",\n        \"email\": \"sofiaaraya@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"2002-12-15T00:00:00\"\n    },\n    {\n        \"id\": 4,\n        \"rut\": \"21858605-6\",\n        \"name\": \"Pedro Morales\",\n        \"email\": \"pedromorales@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"1995-07-29T00:00:00\"\n    },\n    {\n        \"id\": 9,\n        \"rut\": \"78863922-2\",\n        \"name\": \"Oscar Araya\",\n        \"email\": \"oscararaya@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2003-12-10T00:00:00\"\n    },\n    {\n        \"id\": 1,\n        \"rut\": \"23434831-4\",\n        \"name\": \"María Pérez\",\n        \"email\": \"perezmaria@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"2004-01-07T00:00:00\"\n    },\n    {\n        \"id\": 5,\n        \"rut\": \"66910530-2\",\n        \"name\": \"Lucía Contreras\",\n        \"email\": \"luciacontreras@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"1998-09-02T00:00:00\"\n    },\n    {\n        \"id\": 2,\n        \"rut\": \"22462260-4\",\n        \"name\": \"Jorge González\",\n        \"email\": \"jorgegonzalez@gmail.com\",\n        \"gender\": \"otro\",\n        \"birthdate\": \"1985-11-23T00:00:00\"\n    },\n    {\n        \"id\": 10,\n        \"rut\": \"78478405-5\",\n        \"name\": \"Elias James\",\n        \"email\": \"eliasjames@gmail.com\",\n        \"gender\": \"masculino\",\n        \"birthdate\": \"2003-09-05T00:00:00\"\n    },\n    {\n        \"id\": 6,\n        \"rut\": \"12847223-6\",\n        \"name\": \"Diego Torres\",\n        \"email\": \"diegotorres@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2002-12-15T00:00:00\"\n    },\n    {\n        \"id\": 8,\n        \"rut\": \"12942918-7\",\n        \"name\": \"Diego Araya\",\n        \"email\": \"diegoaraya@gmail.com\",\n        \"gender\": \"prefiero no decirlo\",\n        \"birthdate\": \"2001-04-12T00:00:00\"\n    },\n    {\n        \"id\": 3,\n        \"rut\": \"92923142-1\",\n        \"name\": \"Carla Fuentes\",\n        \"email\": \"carlafuentes@gmail.com\",\n        \"gender\": \"femenino\",\n        \"birthdate\": \"2000-03-17T00:00:00\"\n    }\n]"
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "Edit User",
@@ -140,7 +358,161 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Edit User 200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"10434831-5\",\r\n  \"name\": \"María Pérez\",\r\n  \"email\": \"mariaperez01@gmail.com\",\r\n  \"gender\": \"otro\",\r\n  \"birthdate\": \"2006-02-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:07:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"Usuario editado correctamente\""
+				},
+				{
+					"name": "Edit User 400",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"10434831-4\",\r\n  \"name\": \"María Pérez\",\r\n  \"email\": \"mariaperez01\",\r\n  \"gender\": \"otro\",\r\n  \"birthdate\": \"2006-02-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:10:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Email\": [\n            \"The Email field is not a valid e-mail address.\"\n        ]\n    },\n    \"traceId\": \"00-2caa72dd8828d7e1aa7080d10e14d11d-a9051ac1df61d2c6-00\"\n}"
+				},
+				{
+					"name": "Edit User 404",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rut\": \"10434831-4\",\r\n  \"name\": \"María Pérez\",\r\n  \"email\": \"mariaperez01@gmail.com\",\r\n  \"gender\": \"otro\",\r\n  \"birthdate\": \"2006-02-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5288/user/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"100"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:10:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"Usuario no encontrado\""
+				}
+			]
 		},
 		{
 			"name": "Delete User",
@@ -160,7 +532,92 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete User 200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5288/user/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:07:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"Usuario eliminado correctamente\""
+				},
+				{
+					"name": "Delete User 404",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5288/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5288",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Oct 2024 03:08:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"Usuario no encontrado\""
+				}
+			]
 		}
 	]
 }
